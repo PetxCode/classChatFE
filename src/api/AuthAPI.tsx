@@ -2,7 +2,7 @@ import axios from "axios"
 
 const url: string = 'http://localhost:8899/api/v2'
 
-export const registerAuthor = async (data: any) => {
+export const registerUser = async (data: any) => {
     try {
         const config: {} = {
             "content-type": "multipart/form-data"

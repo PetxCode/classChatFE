@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import * as yup from "yup"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useNavigate } from "react-router-dom"
+import { registerUser } from '../../api/AuthAPI'
 
 const Register = () => {
     const navigate = useNavigate()
@@ -37,17 +38,11 @@ const Register = () => {
 
     const onHandleSubmit = handleSubmit(async (data: any) => {
         const { userName, email, password } = data
-        const formData = new FormData()
 
-        formData.append("name", userName)
-        formData.append("email", email)
-        formData.append("password", password)
-        formData.append("image", avatar)
-
-        registerAuthor(formData).then(() => {
+        registerUser({ userName, email, password }).then(() => {
             navigate("/sign-in")
         })
-        // reset()
+
     })
 
 
